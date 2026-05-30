@@ -19,9 +19,9 @@ Xray is a lightweight, serverless V2Ray tunnel built on Cloudflare Workers, opti
 ## 🌐 Endpoints
 | Endpoint | Description |
 | -------- | --------------------------------- |
-| `/`      | Simple static "Hello World" page |
+| `/`      | Static landing page (Prevents Cloudflare Error 1101) |
 | `/link`  | Generate shareable proxy links for VMess, VLESS, Trojan & SS |
-| `/sub`   | Simple static "Subscription" page|
+| `/sub`   | Static subscription text (Prevents Cloudflare Error 1101)|
 
 ---
 
