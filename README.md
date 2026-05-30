@@ -6,6 +6,7 @@ xray is a lightweight and serverless V2Ray tunnel built on [Cloudflare Workers](
 It offers fast, secure, and scalable deployment without the need for a traditional VPS.
 
 ---
+🌐 **Language:** **Indonesia** | [简体中文](./README_CN.md)
 
 ## 🔧 Features
 
@@ -25,7 +26,7 @@ It offers fast, secure, and scalable deployment without the need for a tradition
 
 | Endpoint | Description                       |
 | -------- | --------------------------------- |
-| `/`      | Main landing page                 |
+| `/`      |                                   |
 | `/link`  | Generate shareable proxy links    |
 | `/sub`   |                                   |
 
