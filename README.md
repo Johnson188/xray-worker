@@ -30,12 +30,9 @@ Worker ini membutuhkan KV untuk menyimpan data.
 Token ini digunakan GitHub Actions untuk mengakses akun Cloudflare Anda.
 
 1. Buka [Cloudflare API Tokens](https://dash.cloudflare.com/profile/api-tokens).  
-2. Klik **Create Token** → pilih template **Edit Cloudflare Workers**.  
-3. Pada bagian **Permissions**, tambahkan satu lagi:  
-   - `Account` → `Workers KV Storage` → `Edit`  
-   (sehingga total ada dua permission: Workers & KV).  
-4. Klik **Continue to summary** → **Create Token**.  
-5. **Salin token yang muncul** (hanya terlihat sekali). Simpan dengan aman – jangan di-commit ke GitHub.
+2. Klik **Create Token** → pilih template **Edit Cloudflare Workers**.   
+3. Klik **Continue to summary** → **Create Token**.  
+4. **Salin token yang muncul** (hanya terlihat sekali). Simpan dengan aman – jangan di-commit ke GitHub.
 
 > Token ini nanti akan dimasukkan sebagai **GitHub Secret**.
 
