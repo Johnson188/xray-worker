@@ -1,4 +1,4 @@
-## 🚀 Panduan Deploy (GitHub Actions)
+
 
 **A Serverless V2Ray Tunnel Optimized for Indonesia**
 
@@ -39,6 +39,9 @@ It offers fast, secure, and scalable deployment without the need for a tradition
    - Di halaman utama, scroll ke kanan bawah – cari **Account ID** (misal: `ea1aab81dc8e22018131832d124a54fc`).  
    - Simpan ID ini, nanti akan digunakan di `wrangler.toml` dan secrets.
 
+---
+
+## 🚀 Panduan Deploy (GitHub Actions)
 ---
 
 ### 2️⃣ Buat Namespace KV
