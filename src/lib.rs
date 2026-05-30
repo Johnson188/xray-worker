@@ -35,7 +35,7 @@ async fn main(req: Request, env: Env, _: Context) -> Result<Response> {
         .await
 }
 
-// Halaman utama statis (Welcome to nginx style)
+// Halaman utama statis
 async fn index(_req: Request, _cx: RouteContext<Config>) -> Result<Response> {
     Response::from_html(r#"<!DOCTYPE html>
 <html>
