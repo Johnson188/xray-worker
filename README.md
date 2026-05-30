@@ -1,6 +1,6 @@
 ## 🚀 Panduan Deploy (GitHub Actions)
 
-Ikuti langkah-langkah di bawah ini secara berurutan. Semua perintah/perubahan dilakukan di **browser** (kecuali jika disebutkan).
+Ikuti langkah-langkahnya 
 
 ---
 
@@ -32,7 +32,8 @@ Token ini digunakan GitHub Actions untuk mengakses akun Cloudflare Anda.
 1. Buka [Cloudflare API Tokens](https://dash.cloudflare.com/profile/api-tokens).  
 2. Klik **Create Token** → pilih template **Edit Cloudflare Workers**.   
 3. Klik **Continue to summary** → **Create Token**.  
-4. **Set GitHub Repository Secret**
+---
+### 4️⃣ GitHub Repository Secret
 
    - Navigate to: GitHub → Your Repo → Settings → Secrets and variables → Actions
    - Add a new secret:
