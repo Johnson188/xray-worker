@@ -39,19 +39,26 @@ async fn main(req: Request, env: Env, _: Context) -> Result<Response> {
 async fn index(_req: Request, _cx: RouteContext<Config>) -> Result<Response> {
     Response::from_html(r#"<!DOCTYPE html>
 <html>
-<head><title>Welcome to nginx!</title>
-<style>
-    body { background: #0a0a0a; color: #0f0; font-family: monospace; text-align: center; padding: 50px; }
-    h1 { font-size: 3em; }
-</style>
+<head>
+    <title>Hello World</title>
+    <style>
+        body {
+            background: #0a0a0a;
+            color: #0f0;
+            font-family: monospace;
+            text-align: center;
+            padding: 50px;
+        }
+        h1 {
+            font-size: 3em;
+        }
+    </style>
 </head>
 <body>
-<h1>Welcome to nginx!</h1>
-<p>If you see this page, the nginx web server is successfully installed and working. Further configuration is required.</p>
-<p>For online documentation and support please refer to <a href="https://nginx.org/">nginx.org</a>.</p>
-<p><em>Thank you for using nginx.</em></p>
+    <h1>Hello World</h1>
+    <p>Welcome to my simple page.</p>
 </body>
-</html>"#)
+</html>
 }
 
 // Halaman subscription statis (bisa sama atau berbeda)
