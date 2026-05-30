@@ -1,4 +1,75 @@
+## 🚀 Panduan Deploy (GitHub Actions)
 
+Ikuti langkah-langkah di bawah ini secara berurutan. Semua perintah/perubahan dilakukan di **browser** (kecuali jika disebutkan).
 
-We are cloning a public repository by using its URL [FoolVPN-ID Siren](https://github.com/FoolVPN-ID/Siren)
-Siren is a lightweight and serverless V2Ray tunnel built on [Cloudflare Workers](https://workers.cloudflare.com/), 
+---
+
+### 1️⃣ Persiapan Akun Cloudflare
+
+1. Pastikan Anda memiliki akun [Cloudflare](https://cloudflare.com) (gratis).  
+2. Catat **Account ID** Anda:  
+   - Login ke [Cloudflare Dashboard](https://dash.cloudflare.com/).  
+   - Di halaman utama, scroll ke kanan bawah – cari **Account ID** (misal: `ea1aab81dc8e22018131832d124a54fc`).  
+   - Simpan ID ini, nanti akan digunakan di `wrangler.toml` dan secrets.
+
+---
+
+### 2️⃣ Buat Namespace KV
+
+Worker ini membutuhkan KV untuk menyimpan data.
+
+1. Di Cloudflare Dashboard, buka **Workers & Pages** → **KV**.  
+2. Klik **Create namespace**, isi nama: `YUMI`.  
+3. Setelah dibuat, klik namanya lalu salin **ID** (misal: `8ff1913fa986482d967e0a5c7e2b0791`).  
+   Simpan ID ini – akan dipakai di `wrangler.toml`.
+
+---
+
+### 3️⃣ Buat API Token Cloudflare
+
+Token ini digunakan GitHub Actions untuk mengakses akun Cloudflare Anda.
+
+1. Buka [Cloudflare API Tokens](https://dash.cloudflare.com/profile/api-tokens).  
+2. Klik **Create Token** → pilih template **Edit Cloudflare Workers**.  
+3. Pada bagian **Permissions**, tambahkan satu lagi:  
+   - `Account` → `Workers KV Storage` → `Edit`  
+   (sehingga total ada dua permission: Workers & KV).  
+4. Klik **Continue to summary** → **Create Token**.  
+5. **Salin token yang muncul** (hanya terlihat sekali). Simpan dengan aman – jangan di-commit ke GitHub.
+
+> Token ini nanti akan dimasukkan sebagai **GitHub Secret**.
+
+---
+
+### 4️⃣ Siapkan Repository GitHub
+
+#### a. Fork atau clone repositori ini ke akun GitHub Anda.
+
+#### b. Edit file `wrangler.toml`
+
+Buka file `wrangler.toml` di repository Anda (bisa langsung dari web GitHub).  
+Sesuaikan nilai berikut:
+
+```toml
+name = "xray"                     # Boleh diubah sesuai selera
+main = "build/worker/shim.mjs"
+compatibility_date = "2024-05-23"
+minify = true
+
+# Ganti dengan Account ID Anda (dari langkah 1)
+account_id = "ea1aab81dc8e22018131832d124a54fc"
+workers_dev = true
+
+[[kv_namespaces]]
+binding = "YUMI"
+# Ganti dengan ID KV Namespace dari langkah 2
+id = "8ff1913fa986482d967e0a5c7e2b0791"
+
+[build]
+command = "cargo install worker-build && worker-build --release"
+
+[env.dev]
+build = { command = "cargo install worker-build && worker-build --dev" }
+
+[vars]
+UUID = "2bcfbfba-b446-4ad5-93ad-72af9e008f61"   # Bisa ganti UUID lain
